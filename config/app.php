@@ -156,7 +156,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Artesaos\Defender\Providers\DefenderServiceProvider::class
+        Artesaos\Defender\Providers\DefenderServiceProvider::class,
+        "Catcoder\Providers\HelperServiceProvider",
+        'Intervention\Image\ImageServiceProvider'
 
     ],
 
@@ -205,7 +207,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Defender' => Artesaos\Defender\Facades\Defender::class
+        'Defender' => Artesaos\Defender\Facades\Defender::class,
+        'FilesHandler' => "Catcoder\Helpers\FilesHandler",
+        'Image' => 'Intervention\Image\Facades\Image'
     ],
 
 ];

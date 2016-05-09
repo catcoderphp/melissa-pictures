@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Photo;
 use App\User;
+use Catcoder\Helpers\FilesHandler;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -55,6 +56,8 @@ class PhotoController extends Controller
         $this->data = $request->all();
         $this->data['user_id'] = Auth::user()->id;
         Photo::create($this->data);
+        $photos_storage = FilesHandler::upload(base_path('public/uploads'),$request->file('photos'));
+        dd($photos_storage);
         if($request->ajax()){
             return response()->json([
                 'status' => 'ok',

@@ -8,7 +8,9 @@
     "php": ">=5.5.9",
     "laravel/framework": "5.2.*",
     "laravelcollective/html": "5.2.*",
-    "artesaos/defender": "^0.5.0"
+    "artesaos/defender": "^0.5.0",
+    "intervention/imagecache": "^2.3",
+    "intervention/image": "dev-master"
 
   },
   "require-dev": {
@@ -28,7 +30,8 @@
   },
   "autoload-dev": {
     "classmap": [
-      "tests/TestCase.php"
+      "tests/TestCase.php",
+      "app/Helpers"
     ]
   },
   "scripts": {
