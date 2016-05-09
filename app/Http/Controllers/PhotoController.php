@@ -57,9 +57,9 @@ class PhotoController extends Controller
     {
         $this->data = $request->all();
         $this->data['user_id'] = Auth::user()->id;
-        Photo::create($this->data);
         $photos_storage = FilesHandler::upload(base_path('public/uploads'),$request->file('photos'));
-        dd($photos_storage);
+        $this->data['photo'] = json_encode($photos_storage);
+        Photo::create($this->data);
         if($request->ajax()){
             return response()->json([
                 'status' => 'ok',
