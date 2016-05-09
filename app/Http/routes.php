@@ -24,7 +24,7 @@ Route::resource('photos','PhotoController');
 /*
  * dynamic image cache
  */
-Route::get('/uploads/{size}/{name}', function($size = NULL, $name = NULL){
+Route::get('/uploads/{size}/{name}',['as' => 'imagecache'], function($size = NULL, $name = NULL){
     if(!Auth::guest()) {
         if (!is_null($size) && !is_null($name)) {
             $size = explode('x', $size);

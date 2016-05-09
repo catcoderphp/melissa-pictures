@@ -157,8 +157,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Artesaos\Defender\Providers\DefenderServiceProvider::class,
-        "Catcoder\Providers\HelperServiceProvider",
-        'Intervention\Image\ImageServiceProvider'
+        'Intervention\Image\ImageServiceProvider',
+        'Catcoder\Providers\HelperServiceProvider'
 
     ],
 

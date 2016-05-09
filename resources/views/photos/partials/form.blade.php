@@ -36,10 +36,6 @@
         !!}
     </div>
 
-    @if(isset($photo))
-        <img src="{{$photo->image}}" alt="{{$photo->name}}">
-    @endif
-
     <div class="form-group">
         {!! Form::label('photo','Foto') !!}
         {!! Form::file('photos[]',['class','form-control','multiple']) !!}
