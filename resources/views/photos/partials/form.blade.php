@@ -19,6 +19,16 @@
     </div>
 
     <div class="form-group">
+        {!! Form::label('description','Descripcion') !!}
+        {!! Form::textarea('description',(!isset($photo) ? null : $photo->description),[
+                'id' => 'photoName',
+                'class' => 'form-control',
+                'required'
+            ])
+        !!}
+    </div>
+
+    <div class="form-group">
         {!! Form::label('share_with','Compartir con...') !!}
         {!! Form::select('share_with',$users,0,[
                 'class' => 'form-control'

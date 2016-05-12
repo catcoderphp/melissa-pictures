@@ -11,7 +11,8 @@ class Photo extends Model
         'photo',
         'user_id',
         'share_with',
-        'date'
+        'date',
+        'description'
     ];
     
     public function user (){

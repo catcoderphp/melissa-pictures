@@ -6,12 +6,13 @@
 -->
 <html>
 <head>
-    <title>Verti by HTML5 UP</title>
+    <title>Melissa</title>
+    <link rel="icon" href="{{asset('images/osod.png')}}">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 8]><script src="{{asset('assets/js/ie/html5shiv.js')}}"></script><![endif]-->
+    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="{{asset('assets/css/ie8.css')}}" /><![endif]-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 </head>
@@ -46,34 +47,34 @@
 
                 </ul>
             </nav>
-
+            <div class="container">
+                @if (Session::has('errors'))
+                    <div class="alert alert-warning" role="alert">
+                        <ul>
+                            <strong>Oops! Something went wrong : </strong>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if (Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        <ul>
+                            <strong>Success! Your action has been correct: </strong>
+                            <li>{{ Session::get('success') }}</li>
+                        </ul>
+                    </div>
+                @endif
+            </div>
         </header>
     </div>
 
     @yield('content')
 
 
-    <div class="container">
-        @if (Session::has('errors'))
-            <div class="alert alert-warning" role="alert">
-                <ul>
-                    <strong>Oops! Something went wrong : </strong>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        @if (Session::has('success'))
-            <div class="alert alert-success" role="alert">
-                <ul>
-                    <strong>Success! Your action has been correct: </strong>
-                    <li>{{ Session::get('success') }}</li>
-                </ul>
-            </div>
-        @endif
-    </div>
-    
+
+
 
     <!-- Main -->
     <div id="main-wrapper">
@@ -87,10 +88,10 @@
                             <h3>Interesting stuff</h3>
                             <div class="grid">
                                 <div class="row 50%">
-                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a></div>
-                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a></div>
-                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a></div>
-                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="{{asset('images/pic04.jpg')}}" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="{{asset('images/pic05.jpg')}}" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="{{asset('images/pic06.jpg')}}" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="{{asset('images/pic01.jpg')}}" alt="" /></a></div>
                                 </div>
                             </div>
                             <a href="#" class="button icon fa-file-text-o">More</a>
@@ -200,12 +201,12 @@
 
 <!-- Scripts -->
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.dropotron.min.js')}}"></script>
+<script src="{{asset('assets/js/skel.min.js')}}"></script>
+<script src="{{asset('assets/js/util.js')}}"></script>
+<!--[if lte IE 8]><script src="{{asset('assets/js/ie/respond.min.js')}}"></script><![endif]-->
+<script src="{{asset('assets/js/main.js')}}"></script>
 <script src="{{asset('/assets/js/actions.js')}}"></script>
 
 </body>
