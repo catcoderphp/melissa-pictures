@@ -5,7 +5,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Album de fotos para Melissa" />
     <meta property="og:description" content="Aplicacion para fotos de melissa, album de fotos" />
-    <meta property="og:image" content="http://fsa.zedge.net/scale.php?img=NS8wLzAvMy8xLTg2ODMzNTAtNTAwMzg5MC5qcGc&ctype=1&v=4&q=71&xs=300&ys=225&sig=98528f91451941578b3ebf9f393ebf1d49aeb899" />
+    <meta property="og:image" content="http://www.infonomia.com/uploads/tous1.jpg" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
