@@ -33,7 +33,9 @@ class PhotoController extends Controller
         $photos = Photo::where('user_id','=',$this->current_user)
             ->with(['share' => function($query) {
                 $query->select('name','id')->get();
-            }])->paginate(15);
+            }])
+            ->orderBy('id','DESC')
+            ->paginate(15);
         return view('photos.index',compact('photos'));
     }
 
