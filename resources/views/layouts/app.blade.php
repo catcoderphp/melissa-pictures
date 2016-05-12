@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <meta property="og:url" content="http://melissa-bb.mx" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Album de fotos para Melissa" />
     <meta property="og:description" content="Aplicacion para fotos de melissa, album de fotos" />
     <meta property="og:image" content="http://fsa.zedge.net/scale.php?img=NS8wLzAvMy8xLTg2ODMzNTAtNTAwMzg5MC5qcGc&ctype=1&v=4&q=71&xs=300&ys=225&sig=98528f91451941578b3ebf9f393ebf1d49aeb899" />
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -54,8 +54,9 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/home') }}">Home</a></li>
             </ul>
+            @include('layouts.partials.nav')
 
-            <!-- Right Side Of Navbar -->
+                    <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
@@ -76,6 +77,26 @@
         </div>
     </div>
 </nav>
+<div class="container">
+    @if (Session::has('errors'))
+        <div class="alert alert-warning" role="alert">
+            <ul>
+                <strong>Oops! Something went wrong : </strong>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (Session::has('success'))
+        <div class="alert alert-success" role="alert">
+            <ul>
+                <strong>Success! Your action has been correct: </strong>
+                <li>{{ Session::get('success') }}</li>
+            </ul>
+        </div>
+    @endif
+</div>
 
 @yield('content')
 
@@ -83,5 +104,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+@yield('scripts')
 </body>
 </html>

@@ -18,3 +18,25 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('photos','PhotoController');
+
+/*
+ * dynamic image cache
+ */
+Route::get('/uploads/{size}/{name}',['as' => 'imagecache', function($size = NULL, $name = NULL){
+    if(!Auth::guest()) {
+        if (!is_null($size) && !is_null($name)) {
+            $size = explode('x', $size);
+            $cache_image = Image::cache(function ($image) use ($size, $name) {
+                return $image->make(url("/uploads/". $name))->resize($size[0], $size[1]);
+            }, 500); // cache for 500 minutes
+
+            return Response::make($cache_image, 200, ['Content-Type' => 'image']);
+        } else {
+            abort(404);
+        }
+    } else {
+        abort(404);
+    }
+}]);
