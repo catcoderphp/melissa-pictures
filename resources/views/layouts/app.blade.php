@@ -1,135 +1,212 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<!--
+	Verti by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 <head>
-    <meta property="og:url" content="http://melissa-bb.mx" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Album de fotos para Melissa" />
-    <meta property="og:description" content="Aplicacion para fotos de melissa, album de fotos" />
-    <meta property="og:image" content="http://www.infonomia.com/uploads/tous1.jpg" />
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verti by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-    <title>ALBUM MELISSA</title>
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
-
-    <style>
-        body {
-            font-family: 'Lato';
-        }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
-    <link rel="stylesheet" href="{{asset('/css/main.css')}}"/>
 </head>
-<body id="app-layout">
-<div class="text">
-    <svg>
-        <defs>
-            <mask id="mask" x="0" y="0" width="100%" height="100%" >
-                <!-- alpha rectangle -->
-                <!-- rectángulo alfa -->
-                <rect id="alpha" x="0" y="0" width="100%" height="100%"/>
-                <!-- All text that you want -->
-                <!-- Coloca todo el texto que necesites -->
-                <text id="title" x="50%" y="0" dy="1.58em">MELISSA</text>
-                <text id="subtitle" x="50%" y="0" dy="7.8em">PHOTOS</text>
-            </mask>
-        </defs>
-        <!-- Apply color here! -->
-        <!-- Color aquí -->
-        <rect id="base" x="0" y="30" width="100%" height="50%"></rect>
-    </svg>
+<body class="homepage">
+<div id="page-wrapper">
 
-</div>
+    <!-- Header -->
+    <div id="header-wrapper">
+        <header id="header" class="container">
 
-<section class="intro">
+            <!-- Logo -->
+            <div id="logo">
+                <h1><a href="index.html">Melissa</a></h1>
+                <span>by catcoder.php</span>
+            </div>
 
-</section>
-<nav class="navbar navbar-default navbar-static-top">
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li class="current"><a href="{{asset('/')}}">Home</a></li>
+                    @if(!Auth::check())
+                        <li>
+                            <a href="#">Usuario</a>
+                            <ul>
+                                <li><a href="/login">Acceder</a></li>
+                            </ul>
+                        </li>
+                    @else
+                        <li><a href="#">Bienvenid@ {{Auth::user()->name}}</a></li>
+                        <li><a class="btn btn-default" href="/logout">Cerrar session</a></li>
+                    @endif
+
+                </ul>
+            </nav>
+
+        </header>
+    </div>
+
+    @yield('content')
+
+
     <div class="container">
-        <div class="navbar-header">
+        @if (Session::has('errors'))
+            <div class="alert alert-warning" role="alert">
+                <ul>
+                    <strong>Oops! Something went wrong : </strong>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if (Session::has('success'))
+            <div class="alert alert-success" role="alert">
+                <ul>
+                    <strong>Success! Your action has been correct: </strong>
+                    <li>{{ Session::get('success') }}</li>
+                </ul>
+            </div>
+        @endif
+    </div>
+    
 
-            <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+    <!-- Main -->
+    <div id="main-wrapper">
+        <div class="container">
+            <div class="row 200%">
+                <div class="4u 12u(medium)">
 
-            <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                Melissa
-            </a>
-        </div>
+                    <!-- Sidebar -->
+                    <div id="sidebar">
+                        <section class="widget thumbnails">
+                            <h3>Interesting stuff</h3>
+                            <div class="grid">
+                                <div class="row 50%">
+                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a></div>
+                                </div>
+                            </div>
+                            <a href="#" class="button icon fa-file-text-o">More</a>
+                        </section>
+                    </div>
 
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                <li><a href="{{ url('/home') }}">Home</a></li>
-            </ul>
-            @include('layouts.partials.nav')
+                </div>
+                <div class="8u 12u(medium) important(medium)">
 
-                    <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
-                @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
-                @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
+                    <!-- Content -->
+                    <div id="content">
+                        <section class="last">
+                            <h2>So what's this all about?</h2>
+                            <p>This is <strong>Verti</strong>, a free and fully responsive HTML5 site template by <a href="http://html5up.net">HTML5 UP</a>.
+                                Verti is released under the <a href="http://html5up.net/license">Creative Commons Attribution license</a>, so feel free to use it for any personal or commercial project you might have going on (just don't forget to credit us for the design!)</p>
+                            <p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. Praesent semper bibendum ipsum, et tristique augue fringilla eu. Vivamus id risus vel dolor auctor euismod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat. Aliquam luctus mattis lectus sit amet phasellus quam turpis.</p>
+                            <a href="#" class="button icon fa-arrow-circle-right">Continue Reading</a>
+                        </section>
+                    </div>
 
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                        </ul>
-                    </li>
-                @endif
-            </ul>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
-<div class="container">
-    @if (Session::has('errors'))
-        <div class="alert alert-warning" role="alert">
-            <ul>
-                <strong>Oops! Something went wrong : </strong>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    @if (Session::has('success'))
-        <div class="alert alert-success" role="alert">
-            <ul>
-                <strong>Success! Your action has been correct: </strong>
-                <li>{{ Session::get('success') }}</li>
-            </ul>
-        </div>
-    @endif
+
+    <!-- Footer -->
+    <div id="footer-wrapper">
+        <footer id="footer" class="container">
+            <div class="row">
+                <div class="3u 6u(medium) 12u$(small)">
+
+                    <!-- Links -->
+                    <section class="widget links">
+                        <h3>Random Stuff</h3>
+                        <ul class="style2">
+                            <li><a href="#">Etiam feugiat condimentum</a></li>
+                            <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+                            <li><a href="#">Sed porttitor cras in erat nec</a></li>
+                            <li><a href="#">Felis varius pellentesque potenti</a></li>
+                            <li><a href="#">Nullam scelerisque blandit leo</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+                <div class="3u 6u$(medium) 12u$(small)">
+
+                    <!-- Links -->
+                    <section class="widget links">
+                        <h3>Random Stuff</h3>
+                        <ul class="style2">
+                            <li><a href="#">Etiam feugiat condimentum</a></li>
+                            <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+                            <li><a href="#">Sed porttitor cras in erat nec</a></li>
+                            <li><a href="#">Felis varius pellentesque potenti</a></li>
+                            <li><a href="#">Nullam scelerisque blandit leo</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+                <div class="3u 6u(medium) 12u$(small)">
+
+                    <!-- Links -->
+                    <section class="widget links">
+                        <h3>Random Stuff</h3>
+                        <ul class="style2">
+                            <li><a href="#">Etiam feugiat condimentum</a></li>
+                            <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+                            <li><a href="#">Sed porttitor cras in erat nec</a></li>
+                            <li><a href="#">Felis varius pellentesque potenti</a></li>
+                            <li><a href="#">Nullam scelerisque blandit leo</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+                <div class="3u 6u$(medium) 12u$(small)">
+
+                    <!-- Contact -->
+                    <section class="widget contact last">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                            <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+                            <li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+                        </ul>
+                        <p>1234 Fictional Road<br />
+                            Nashville, TN 00000<br />
+                            (800) 555-0000</p>
+                    </section>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="12u">
+                    <div id="copyright">
+                        <ul class="menu">
+                            <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
 </div>
-@yield('content')
 
+<!-- Scripts -->
 
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
+<script src="{{asset('/assets/js/actions.js')}}"></script>
 
-        <!-- JavaScripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-{{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
-@yield('scripts')
 </body>
 </html>

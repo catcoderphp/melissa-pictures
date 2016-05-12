@@ -17,6 +17,7 @@ class PhotoController extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth');
         if(isset(Auth::user()->id)){
             $this->current_user = Auth::user()->id;
         }

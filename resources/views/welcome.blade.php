@@ -1,84 +1,38 @@
-@if(Auth::check())
 
-    @extends('layouts.app')
-    @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Welcome</div>
 
-                    <div class="panel-body">
-                        Aplicacion para fotos de melissa
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endsection
-@else
+@extends('layouts.app')
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
-                    <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                            {!! csrf_field() !!}
+    <div id="banner-wrapper">
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">E-Mail Address</label>
-
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">Password</label>
-
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" name="password">
-
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember"> Remember Me
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-btn fa-sign-in"></i>Login
-                                    </button>
-
-                                    <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                                </div>
-                            </div>
-                        </form>
+        <div id="banner" class="box container">
+            <div class="row">
+                @if(Auth::check())
+                    <div class="7u 12u(medium)">
+                        <h2>Hola! Ahora puedes crear &aacute;lbumes</h2>
+                        <p>Y guardar fotos nuevas en cada uno!</p>
                     </div>
-                </div>
+                    <div class="5u 12u(medium)">
+                        <ul>
+                            <li><a href="#" class="button big icon fa-arrow-circle-right">Nueva Foto</a></li>
+                            <li><a href="#" class="button alt big icon fa-question-circle">Fotos agregadas</a></li>
+                        </ul>
+                    </div>
+                @else
+                    <div class="7u 12u(medium)">
+                        <h2>Fotos de melissa</h2>
+                        <p>Necesitas iniciar sesi&oacute;n :(</p>
+                    </div>
+                    <div class="5u 12u(medium)">
+                        <ul>
+                            <li id="login-start"><a href="javascript:void(0)" class="button big icon fa-arrow-circle-right">Iniciar sesi&oacute;n</a></li>
+                        </ul>
+                        <div id="login-form">
+                            @include('auth.login')
+                        </div>
+                    </div>
+                @endif
+
             </div>
         </div>
     </div>
 @endsection
-@endif
