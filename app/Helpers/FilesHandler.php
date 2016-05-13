@@ -2,6 +2,8 @@
 namespace Catcoder\Helpers;
 
 
+use Intervention\Image\Facades\Image;
+
 class FilesHandler
 {
     /**
@@ -16,8 +18,8 @@ class FilesHandler
             foreach ($files as $file){
                 if($file->isValid()) {
                     $name = md5(time() . $file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
+                    Image::make($file)->save($path)->encode('jpg',80);
                     $uploaded[] = $name;
-                    $file->move($path, $name);
                 }
             }
             return $uploaded;
