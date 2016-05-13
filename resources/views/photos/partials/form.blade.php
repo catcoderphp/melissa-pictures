@@ -1,5 +1,4 @@
 <div id="form_create_photos">
-
     {!! Form::open([
             'method' => ((!isset($photo)) ? 'post' : 'put'),
             'route' => ((!isset($photo)) ? 'photos.store' : ['photos.update',$photo->id]),
@@ -52,7 +51,8 @@
     </div>
 
     <div class="form-group">
-        {!! Form::submit((!isset($photo) ? 'Save photo' : "Edit photo"),['class' => 'btn btn-success','id' => 'photoSubmit']) !!}
+        {!! Form::submit((!isset($photo) ? 'Save photo' : "Edit photo"),['class' => 'btn btn-success','id' => '']) !!}
+        <a href="{{route('photos.index')}}" class="btn-danger btn">Cancelar</a>
     </div>
 
     {!! Form::close() !!}
