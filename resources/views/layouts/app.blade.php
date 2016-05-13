@@ -14,6 +14,7 @@
     {!! Minify::stylesheetDir('/assets/css/')->withFullUrl() !!}
     {!! Minify::stylesheetDir('/css/')->withFullUrl() !!}
 
+
 </head>
 <body class="homepage">
 <div id="page-wrapper">
