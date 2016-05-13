@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" />
     <!--[if lte IE 8]><link rel="stylesheet" href="{{asset('assets/css/ie8.css')}}" /><![endif]-->
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
+    <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.dropotron.min.js')}}"></script>
+    <script src="{{asset('assets/js/skel.min.js')}}"></script>
+    <script src="{{asset('assets/js/compress.js')}}"></script>
 
 </head>
 <body class="homepage">
@@ -201,10 +205,7 @@
 
 <!-- Scripts -->
 
-<script src="{{asset('assets/js/jquery.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.dropotron.min.js')}}"></script>
-<script src="{{asset('assets/js/skel.min.js')}}"></script>
-<script src="{{asset('assets/js/compress.js')}}"></script>
+
 <!--[if lte IE 8]><script src="{{asset('assets/js/ie/respond.min.js')}}"></script><![endif]-->
 
 </body>
