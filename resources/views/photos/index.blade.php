@@ -10,7 +10,7 @@
         <div class="row">
 
             <!-- Box -->
-
+            <a href="{{route('photos.create')}}" class="btn btn-success">+ Agregar foto</a>
             @if(count($photos) > 0)
                 @foreach($photos as $photo)
 
