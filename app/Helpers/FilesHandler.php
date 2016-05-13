@@ -18,7 +18,7 @@ class FilesHandler
             foreach ($files as $file){
                 if($file->isValid()) {
                     $name = md5(time() . $file->getClientOriginalName()) . '.jpg';
-                    Image::make($file)->save($path."/". $name)->encode('jpg',80);
+                    Image::make($file)->save($path."/". $name)->encode('jpg',60);
                     $uploaded[] = $name;
                 }
             }
