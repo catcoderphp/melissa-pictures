@@ -6,7 +6,7 @@ use App\Photo;
 use App\User;
 use Catcoder\Helpers\FilesHandler;
 use Illuminate\Http\Request;
-
+use Approached\LaravelImageOptimizer\ImageOptimizer;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
