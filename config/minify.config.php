@@ -53,8 +53,8 @@ return array(
     |
     */
 
-    'js_build_path' => '/js/builds/',
-    'js_url_path' => '/js/builds/', 
+    'js_build_path' => '/assets/js/',
+    'js_url_path' => '/assets/js/', 
 
 	/*
     |--------------------------------------------------------------------------

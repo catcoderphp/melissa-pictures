@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Verti by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 <head>
     <title>Melissa</title>
@@ -11,7 +6,6 @@
     <link rel="icon" href="{{asset('images/osod.png')}}">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {!! Minify::stylesheetDir('/assets/css/')->withFullUrl() !!}
 </head>
 <body class="homepage">
 <div id="page-wrapper">
@@ -73,7 +67,7 @@
 
 
 
-    <!-- Main -->
+            <!-- Main -->
     <!--
     <div id="main-wrapper">
         <div class="container">
@@ -81,7 +75,7 @@
                 <div class="4u 12u(medium)">
 
                     <!-- Sidebar -->
-                    <!--
+    <!--
                     <div id="sidebar">
                         <section class="widget thumbnails">
                             <h3>Interesting stuff</h3>
@@ -200,14 +194,11 @@
 </div>
 
 <!-- Scripts -->
-
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.dropotron.min.js')}}"></script>
 <script src="{{asset('assets/js/skel.min.js')}}"></script>
-<script src="{{asset('assets/js/util.js')}}"></script>
 <!--[if lte IE 8]><script src="{{asset('assets/js/ie/respond.min.js')}}"></script><![endif]-->
-<script src="{{asset('assets/js/main.js')}}"></script>
-<script src="{{asset('/assets/js/actions.js')}}"></script>
-
+{!! Minify::javascript(['/assets/js/actions.js','/assets/js/main.js','/assets/js/util.js'])->withFullUrl() !!}
+{!! Minify::stylesheetDir('/assets/css/')->withFullUrl() !!}
 </body>
 </html>

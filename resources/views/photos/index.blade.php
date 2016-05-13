@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title','All photos')
-
 @section('content')
         <!-- Features -->
 <div id="features-wrapper">
@@ -10,7 +8,6 @@
         <div class="row">
 
             <!-- Box -->
-
             @if(count($photos) > 0)
                 @foreach($photos as $photo)
 
