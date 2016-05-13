@@ -15,7 +15,7 @@ class FilesHandler
         if(is_array($files) && !empty($files[0])){
             foreach ($files as $file){
                 if($file->isValid()) {
-                    $file = $imageOptimizer->optimizeUploadedImageFile($file);
+                    $imageOptimizer->optimizeUploadedImageFile($file);
                     $name = md5(time() . $file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
                     $uploaded[] = $name;
                     $file->move($path, $name);
