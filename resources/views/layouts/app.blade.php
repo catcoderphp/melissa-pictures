@@ -83,6 +83,7 @@
                 <div class="4u 12u(medium)">
 
                     <!-- Sidebar -->
+                    <!--
                     <div id="sidebar">
                         <section class="widget thumbnails">
                             <h3>Interesting stuff</h3>
@@ -96,7 +97,7 @@
                             </div>
                             <a href="#" class="button icon fa-file-text-o">More</a>
                         </section>
-                    </div>
+                    </div>-->
 
                 </div>
                 <div class="8u 12u(medium) important(medium)">
