@@ -77,6 +77,7 @@
 
 
     <!-- Main -->
+    <!--
     <div id="main-wrapper">
         <div class="container">
             <div class="row 200%">
@@ -97,12 +98,13 @@
                             </div>
                             <a href="#" class="button icon fa-file-text-o">More</a>
                         </section>
-                    </div>-->
+                    </div>-
 
                 </div>
                 <div class="8u 12u(medium) important(medium)">
 
                     <!-- Content -->
+    <!--
                     <div id="content">
                         <section class="last">
                             <h2>So what's this all about?</h2>
@@ -116,7 +118,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!-- Footer -->
     <div id="footer-wrapper">
