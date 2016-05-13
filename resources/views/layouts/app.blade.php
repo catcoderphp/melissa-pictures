@@ -13,7 +13,7 @@
     <!--[if lte IE 8]><script src="{{asset('assets/js/ie/html5shiv.js')}}"></script><![endif]-->
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" />
     <!--[if lte IE 8]><link rel="stylesheet" href="{{asset('assets/css/ie8.css')}}" /><![endif]-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
 
 </head>
 <body class="homepage">
