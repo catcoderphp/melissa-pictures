@@ -158,7 +158,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Artesaos\Defender\Providers\DefenderServiceProvider::class,
         'Intervention\Image\ImageServiceProvider',
-        'Catcoder\Providers\HelperServiceProvider'
+        'Catcoder\Providers\HelperServiceProvider',
+        'Devfactory\Minify\MinifyServiceProvider',
 
     ],
 
@@ -209,7 +210,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Defender' => Artesaos\Defender\Facades\Defender::class,
         'FilesHandler' => "Catcoder\Helpers\FilesHandler",
-        'Image' => 'Intervention\Image\Facades\Image'
+        'Image' => 'Intervention\Image\Facades\Image',
+        'Minify'        => 'Devfactory\Minify\Facades\MinifyFacade'
     ],
 
 ];

@@ -7,13 +7,12 @@
 <html>
 <head>
     <title>Melissa</title>
+
     <link rel="icon" href="{{asset('images/osod.png')}}">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="{{asset('assets/js/ie/html5shiv.js')}}"></script><![endif]-->
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="{{asset('assets/css/ie8.css')}}" /><![endif]-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    {!! Minify::stylesheetDir('/assets/css/')->withFullUrl() !!}
+    {!! Minify::stylesheetDir('/css/')->withFullUrl() !!}
 
 </head>
 <body class="homepage">
@@ -83,7 +82,20 @@
                 <div class="4u 12u(medium)">
 
                     <!-- Sidebar -->
-
+                    <div id="sidebar">
+                        <section class="widget thumbnails">
+                            <h3>Interesting stuff</h3>
+                            <div class="grid">
+                                <div class="row 50%">
+                                    <div class="6u"><a href="#" class="image fit"><img src="{{asset('images/pic04.jpg')}}" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="{{asset('images/pic05.jpg')}}" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="{{asset('images/pic06.jpg')}}" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="{{asset('images/pic01.jpg')}}" alt="" /></a></div>
+                                </div>
+                            </div>
+                            <a href="#" class="button icon fa-file-text-o">More</a>
+                        </section>
+                    </div>
 
                 </div>
                 <div class="8u 12u(medium) important(medium)">
