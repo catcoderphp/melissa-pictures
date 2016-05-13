@@ -1,23 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Melissa</title>!}
+    <title>Melissa</title>
+    {!! Minify::stylesheet('/assets/css/bootstrap.css') !!}
     <link rel="icon" href="{{asset('images/osod.png')}}">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Scripts -->
-    <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="/assets/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
-
-    <script src="{{asset('assets/js/jquery.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.dropotron.min.js')}}"></script>
-    <script src="{{asset('assets/js/skel.min.js')}}"></script>
-    <!--[if lte IE 8]><script src="{{asset('assets/js/ie/respond.min.js')}}"></script><![endif]-->
-    <script src="{{asset('/assets/js/actions.js')}}"></script>
-    <script src="{{asset('/assets/js/main.js')}}"></script>
-    <script src="{{asset('/assets/js/util.js')}}"></script>
-    <link rel="stylesheet" href="{{asset('/assets/css/bootstrap.css')}}">
 </head>
 <body class="homepage">
 <div id="page-wrapper">
@@ -205,5 +193,12 @@
 
 </div>
 
+<!-- Scripts -->
+{!! Minify::stylesheetDir('/assets/css/')->withFullUrl() !!}
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.dropotron.min.js')}}"></script>
+<script src="{{asset('assets/js/skel.min.js')}}"></script>
+<!--[if lte IE 8]><script src="{{asset('assets/js/ie/respond.min.js')}}"></script><![endif]-->
+{!! Minify::javascript(['/assets/js/actions.js','/assets/js/main.js','/assets/js/util.js'])->withFullUrl() !!}
 </body>
 </html>
