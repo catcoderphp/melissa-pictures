@@ -56,11 +56,11 @@ class PhotoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,ImageOptimizer $imageOptimizer)
     {
         $this->data = $request->all();
         $this->data['user_id'] = Auth::user()->id;
-        $photos_storage = FilesHandler::upload(base_path('public/uploads'),$request->file('photos'));
+        $photos_storage = FilesHandler::upload(base_path('public/uploads'),$request->file('photos'),$imageOptimizer);
         $this->data['photo'] = json_encode($photos_storage);
         Photo::create($this->data);
         if($request->ajax()){
