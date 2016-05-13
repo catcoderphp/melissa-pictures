@@ -14,7 +14,7 @@
                     <div class="5u 12u(medium)">
                         <ul>
                             <li><a href="{{route('photos.create')}}" class="button big icon fa-arrow-circle-right">Nueva Foto</a></li>
-                            <li><a href="#" class="button alt big icon fa-question-circle">Fotos agregadas</a></li>
+                            <li><a href="{{route('photos.index')}}" class="button alt big icon fa-question-circle">Fotos agregadas</a></li>
                         </ul>
                     </div>
                 @else
