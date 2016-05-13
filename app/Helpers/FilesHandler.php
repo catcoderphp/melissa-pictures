@@ -2,6 +2,8 @@
 namespace Catcoder\Helpers;
 
 
+use Illuminate\Support\Facades\Storage;
+
 class FilesHandler
 {
     /**
@@ -16,9 +18,10 @@ class FilesHandler
             foreach ($files as $file){
                 if($file->isValid()) {
                     $imageOptimizer->optimizeUploadedImageFile($file);
-                    $name = md5(time() . $file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
-                    $uploaded[] = $name;
-                    $file->move($path, $name);
+                    Storage::put($path.$file->getClientOriginalName() . '.jog', File::get($file));
+                    //$name = md5(time() . $file->getClientOriginalName()) . '.'. $file->getClientOriginalExtension();
+                    //$uploaded[] = $name;
+                    //$file->move($path, $name);
                 }
             }
             return $uploaded;
