@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Melissa</title>
-    {!! Minify::stylesheet('/assets/css/bootstrap.css') !!}
+
     <link rel="icon" href="{{asset('images/osod.png')}}">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
