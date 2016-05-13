@@ -194,11 +194,11 @@
 </div>
 
 <!-- Scripts -->
-<script async src="{{asset('assets/js/jquery.min.js')}}"></script>
-<script async src="{{asset('assets/js/jquery.dropotron.min.js')}}"></script>
-<script async src="{{asset('assets/js/skel.min.js')}}"></script>
-<!--[if lte IE 8]><script async src="{{asset('assets/js/ie/respond.min.js')}}"></script><![endif]-->
-{!! Minify::javascript(['/assets/js/actions.js','/assets/js/main.js','/assets/js/util.js'],['async' => ""])->withFullUrl() !!}
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.dropotron.min.js')}}"></script>
+<script src="{{asset('assets/js/skel.min.js')}}"></script>
+<!--[if lte IE 8]><script src="{{asset('assets/js/ie/respond.min.js')}}"></script><![endif]-->
+{!! Minify::javascript(['/assets/js/actions.js','/assets/js/main.js','/assets/js/util.js'])->withFullUrl() !!}
 {!! Minify::stylesheetDir('/assets/css/')->withFullUrl() !!}
 </body>
 </html>
