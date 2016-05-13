@@ -38,8 +38,8 @@ return array(
     |
     */
 
-    'css_build_path' => '/css/builds/',
-    'css_url_path' => '/css/builds/',
+    'css_build_path' => '/assets/css/',
+    'css_url_path' => '/assets/css/',
 
     /*
     |--------------------------------------------------------------------------
