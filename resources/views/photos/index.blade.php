@@ -6,11 +6,11 @@
         <!-- Features -->
 <div id="features-wrapper">
     <div class="container">
-        <h2><p>Fotos de melissa creadas</p></h2>
+        <h2><p>Fotos de melissa creadas {{"\t"}} <a href="{{route('photos.create')}}" class="btn btn-success">+ Agregar foto</a></p></h2>
         <div class="row">
 
             <!-- Box -->
-            <a href="{{route('photos.create')}}" class="btn btn-success">+ Agregar foto</a>
+
             @if(count($photos) > 0)
                 @foreach($photos as $photo)
 
