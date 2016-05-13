@@ -29,7 +29,9 @@ Route::get('/uploads/{size}/{name}',['as' => 'imagecache', function($size = NULL
         if (!is_null($size) && !is_null($name)) {
             $size = explode('x', $size);
             $cache_image = Image::cache(function ($image) use ($size, $name) {
-                return $image->make(url("/uploads/". $name))->resize($size[0], $size[1]);
+                return $image->make(url("/uploads/". $name))
+                    ->resize($size[0], $size[1])
+                    ->encode('jpg',60);
             }, 500); // cache for 500 minutes
 
             return Response::make($cache_image, 200, ['Content-Type' => 'image']);
