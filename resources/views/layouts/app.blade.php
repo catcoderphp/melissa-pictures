@@ -25,7 +25,7 @@
 
             <!-- Logo -->
             <div id="logo">
-                <h1><a href="index.html">Melissa</a></h1>
+                <h1><a href="{{asset('/')}}">Melissa</a></h1>
                 <span>by catcoder.php</span>
             </div>
 
