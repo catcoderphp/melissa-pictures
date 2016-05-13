@@ -17,10 +17,10 @@ class PhotoController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        /*$this->middleware('auth');
         if(isset(Auth::user()->id)){
             $this->current_user = Auth::user()->id;
-        }
+        }*/
     }
 
     /**
@@ -30,7 +30,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $photos = Photo::where('user_id','=',$this->current_user)
+        $photos = Photo::where('user_id','=',1)
             ->with(['share' => function($query) {
                 $query->select('name','id')->get();
             }])
