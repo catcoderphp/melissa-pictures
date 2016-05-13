@@ -6,7 +6,7 @@ use App\Photo;
 use App\User;
 use Catcoder\Helpers\FilesHandler;
 use Illuminate\Http\Request;
-use Approached\LaravelImageOptimizer\ImageOptimizer;
+
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,11 +56,11 @@ class PhotoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,ImageOptimizer $imageOptimizer)
+    public function store(Request $request)
     {
         $this->data = $request->all();
         $this->data['user_id'] = Auth::user()->id;
-        $photos_storage = FilesHandler::upload(base_path('public/uploads'),$request->file('photos'),$imageOptimizer);
+        $photos_storage = FilesHandler::upload(base_path('public/uploads'),$request->file('photos'));
         $this->data['photo'] = json_encode($photos_storage);
         Photo::create($this->data);
         if($request->ajax()){

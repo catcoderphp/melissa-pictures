@@ -11,7 +11,6 @@
     "artesaos/defender": "^0.5.0",
     "intervention/imagecache": "^2.3",
     "intervention/image": "dev-master",
-    "approached/laravel-image-optimizer": "^2.0"
 
   },
   "require-dev": {

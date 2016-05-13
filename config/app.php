@@ -158,8 +158,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Artesaos\Defender\Providers\DefenderServiceProvider::class,
         'Intervention\Image\ImageServiceProvider',
-        'Catcoder\Providers\HelperServiceProvider',
-        Approached\LaravelImageOptimizer\ServiceProvider::class
+        'Catcoder\Providers\HelperServiceProvider'
 
     ],
 
