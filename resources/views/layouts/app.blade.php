@@ -12,9 +12,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {!! Minify::stylesheetDir('/assets/css/')->withFullUrl() !!}
-    {!! Minify::stylesheetDir('/css/')->withFullUrl() !!}
-
-
 </head>
 <body class="homepage">
 <div id="page-wrapper">
