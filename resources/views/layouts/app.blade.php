@@ -1,9 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    {!! Minify::stylesheetDir('/assets/css/')->withFullUrl() !!}
     <title>Melissa</title>
-
+    {!! Minify::stylesheet('/assets/css/bootstrap.css') !!}
     <link rel="icon" href="{{asset('images/osod.png')}}">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -195,10 +194,11 @@
 </div>
 
 <!-- Scripts -->
+{!! Minify::stylesheetDir('/assets/css/')!!}
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.dropotron.min.js')}}"></script>
 <script src="{{asset('assets/js/skel.min.js')}}"></script>
 <!--[if lte IE 8]><script src="{{asset('assets/js/ie/respond.min.js')}}"></script><![endif]-->
-{!! Minify::javascript(['/assets/js/actions.js','/assets/js/main.js','/assets/js/util.js'])->withFullUrl() !!}
+{!! Minify::javascript(['/assets/js/actions.js','/assets/js/main.js','/assets/js/util.js']) !!}
 </body>
 </html>
