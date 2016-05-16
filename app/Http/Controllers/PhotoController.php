@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class PhotoController extends Controller
 {
@@ -74,6 +75,9 @@ class PhotoController extends Controller
                 ->to(route('photos.index'))
                 ->with('success','Foto(s) agregada(s) correctamente');
         }
+    }
+    public function storageFromAlbum() {
+        dd(Input::all());
     }
 
     /**

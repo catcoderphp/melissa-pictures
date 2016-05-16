@@ -20,6 +20,8 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('photos','PhotoController');
+Route::post('photos/album','PhotoController@storageFromAlbum');
+Route::resource('albums','AlbumController');
 
 /*
  * dynamic image cache

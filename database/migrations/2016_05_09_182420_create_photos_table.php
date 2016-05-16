@@ -26,6 +26,11 @@ class CreatePhotosTable extends Migration
             $table->foreign('share_with')
                 ->references('id')
                 ->on('users');
+            $table->integer('album_id')->unsigned();
+            $table->foreign('album_id')
+                ->references('id')
+                ->on('albums')
+                ->onDelete('cascade');
             $table->dateTime('date');
             $table->timestamps();
         });
