@@ -16,13 +16,7 @@
 
                             <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
                             {!! Form::open(['method' => 'POST','files' => 1, 'url' => route('albums.store')]) !!}
-                            <div class="form-group">
-                                {!! Form::input('file',null,'',[
-                                    'nv-file-select' => '',
-                                    'uploader' => 'uploader',
-                                    'multiple'
-                                ]) !!}
-                            </div>
+
                             <div class="form-group">
                                 {!! Form::label('name','Nombre del &aacute;lbum') !!}
                                 {!! Form::text('name',null,['class' => 'form-control']) !!}
@@ -34,15 +28,21 @@
                             <div class="form-group">
                                 {!! Form::submit('Crear &aacute;lbum',['class' => 'btn btn-success','id' => 'new_album']) !!}
                             </div>
-                            <input type="file" nv-file-select="" uploader="uploader" multiple  />
+                            <!--<input type="file" nv-file-select="" uploader="uploader" multiple  />-->
                             {!! Form::close() !!}
                         </div>
 
                         <div class="col-md-9" style="margin-bottom: 40px">
-                            <h2>Uploads only images (with canvas preview)</h2>
-                            <h3>The queue</h3>
+                            <h2>Selecciona las imagenes para tu &aacute;lbum</h2>
+                            <div class="form-group">
+                                {!! Form::input('file',null,'',[
+                                    'nv-file-select' => '',
+                                    'uploader' => 'uploader',
+                                    'multiple',
+                                    'class' => 'form-control'
+                             ]) !!}
+                            </div>
                             <p>Queue length: <% uploader.queue.length %></p>
-
                             <table class="table">
                                 <thead>
                                 <tr>
