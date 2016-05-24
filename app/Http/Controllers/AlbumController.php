@@ -8,6 +8,11 @@ use App\Http\Requests;
 
 class AlbumController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +20,7 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+        //return view('');
     }
 
     /**
@@ -36,7 +41,7 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
