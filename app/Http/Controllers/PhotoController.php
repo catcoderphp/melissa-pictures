@@ -76,8 +76,14 @@ class PhotoController extends Controller
                 ->with('success','Foto(s) agregada(s) correctamente');
         }
     }
-    public function storageFromAlbum() {
-        dd(Input::all());
+
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function storageFromAlbum(Requests\PhotosRequest $request) {
+        
+        return $request->json([]);
     }
 
     /**
