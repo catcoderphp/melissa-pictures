@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Album;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class AlbumController extends Controller
 {
@@ -41,7 +44,10 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $data = $request->all();
+        $data["user_id"] = Auth::user()->id;
+        Album::create($data);
+        return Redirect::to(asset('/'))->with('success','Tu &aacute;lbum fue creado');
     }
 
     /**
@@ -52,7 +58,9 @@ class AlbumController extends Controller
      */
     public function show($id)
     {
-        //
+        $album = Album::find($id)
+            ->where('user_id','=',Auth::user()->id)
+            ->with('photos');
     }
 
     /**
