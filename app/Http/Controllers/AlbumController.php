@@ -58,9 +58,8 @@ class AlbumController extends Controller
      */
     public function show($id)
     {
-        $album = Album::find($id)
-            ->where('user_id','=',Auth::user()->id)
-            ->with('photos');
+        $album = Album::find($id);
+        return view('photos.index',compact('album'));
     }
 
     /**

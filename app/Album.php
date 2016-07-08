@@ -9,6 +9,6 @@ class Album extends Model
     protected $fillable = ['name','description','user_id'];
 
     public function photos() {
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo('App\Photos','album_id');
     }
 }
