@@ -14,12 +14,9 @@ class Photo extends Model
         'date',
         'description'
     ];
-    
-    public function user (){
-        return $this->belongsTo('App\User','user_id');
+
+    public function album() {
+        return $this->belongsTo('App\Album');
     }
-    
-    public function share() {
-        return $this->belongsTo('App\User','share_with');
-    }
+
 }
