@@ -11,7 +11,7 @@
                     </div>
                     <div class="5u 12u(medium)">
                         <ul>
-                            <li><a href="{{route('albums.create')}}" class="button big icon fa-arrow-circle-right">Nuevo alb&uacute;m</a></li>
+                            <li><a href="{{route('albums.create')}}" class="button big icon fa-arrow-circle-right">Nuevo &aacute;lbum</a></li>
                             <li><a href="{{route('photos.index')}}" class="button alt big icon fa-question-circle">Fotos agregadas</a></li>
                         </ul>
                     </div>

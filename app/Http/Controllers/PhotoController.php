@@ -61,8 +61,8 @@ class PhotoController extends Controller
     {
         $this->data = $request->all();
         $this->data['user_id'] = Auth::user()->id;
-        $photos_storage = FilesHandler::upload(base_path('public/uploads'),$request->file('photos'));
-        $this->data['photo'] = json_encode($photos_storage);
+
+        //$this->data['photo'] = json_encode($photos_storage);
         Photo::create($this->data);
         if($request->ajax()){
             return response()->json([
@@ -82,8 +82,15 @@ class PhotoController extends Controller
      * @return mixed
      */
     public function storageFromAlbum(Requests\PhotosRequest $request) {
-        
-        return $request->json([]);
+        $files[] = $request->file('file');
+        $url = preg_split('/\//',$request->headers->get('referer'));
+        $data['album_id'] = $url[(count($url)) - 1];
+        $photos_storage = FilesHandler::upload(base_path('public/uploads'),$files);
+        $data['photo'] = $photos_storage[0];
+        Photo::create($data);
+        return response()->json([
+            'response' => 'Imagen subida'
+        ]);
     }
 
     /**

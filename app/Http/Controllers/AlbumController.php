@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class AlbumController extends Controller
 {
+    private $user;
     public function __construct()
     {
         $this->middleware('auth');
@@ -23,12 +24,14 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //return view('');
+        $albums = Album::where('user_id','=',Auth::user()->id)
+            ->get();
+        return view('albums.index',compact('albums'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     *'album_id'
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -46,8 +49,8 @@ class AlbumController extends Controller
     {
         $data = $request->all();
         $data["user_id"] = Auth::user()->id;
-        Album::create($data);
-        return Redirect::to(asset('/'))->with('success','Tu &aacute;lbum fue creado');
+        $album = Album::create($data);
+        return Redirect::to(route('albums.show',$album->id))->with('success','Tu &aacute;lbum fue creado');
     }
 
     /**
@@ -58,8 +61,11 @@ class AlbumController extends Controller
      */
     public function show($id)
     {
-        $album = Album::find($id);
-        return view('photos.index',compact('album'));
+        $album = Album::with(['photos' => function($query){
+            $query->orderBy('id','desc');
+        }])
+            ->find($id);
+        return view('albums.show',compact('album'));
     }
 
     /**
@@ -70,7 +76,8 @@ class AlbumController extends Controller
      */
     public function edit($id)
     {
-        //
+        $album = Album::find($id);
+        return view('albums.edit',compact('album'));
     }
 
     /**

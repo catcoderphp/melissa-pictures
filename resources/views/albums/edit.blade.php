@@ -15,6 +15,7 @@
 
                         <div class="col-md-9" style="margin-bottom: 40px">
                             @include('albums.partials.form')
+                            @include('albums.partials.files')
                         </div>
 
                     </div>

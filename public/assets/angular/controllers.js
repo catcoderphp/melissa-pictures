@@ -59,6 +59,8 @@ angular
         };
         uploader.onCompleteAll = function() {
             console.info('onCompleteAll');
+            alert('Fotos subidas con exito!');
+            window.location.reload();
         };
 
         console.info('uploader', uploader);

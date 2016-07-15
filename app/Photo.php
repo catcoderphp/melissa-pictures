@@ -7,12 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     protected $fillable = [
-        'name',
         'photo',
-        'user_id',
-        'share_with',
-        'date',
-        'description'
+        'album_id'
     ];
 
     public function album() {

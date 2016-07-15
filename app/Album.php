@@ -9,6 +9,6 @@ class Album extends Model
     protected $fillable = ['name','description','user_id'];
 
     public function photos() {
-        return $this->hasMany('App\Photos');
+        return $this->hasMany('App\Photo');
     }
 }
