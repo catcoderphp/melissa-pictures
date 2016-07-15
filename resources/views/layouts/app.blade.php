@@ -32,6 +32,7 @@
                             </ul>
                         </li>
                     @else
+                        <li class="current"><a href="{{route('albums.index')}}">&Aacute;lbums</a></li>
                         <li><a href="#">Bienvenid@ {{Auth::user()->name}}</a></li>
                         <li><a class="btn btn-default" href="/logout">Cerrar session</a></li>
                     @endif

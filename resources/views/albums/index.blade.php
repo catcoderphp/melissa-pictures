@@ -25,7 +25,7 @@
                     </div>
                 @endforeach
             @else
-                <h1>No existen fotos :(</h1>
+                <h1>No has agregado ningun &aacute;lmbum :(</h1>
             @endif
         </div>
     </div>
