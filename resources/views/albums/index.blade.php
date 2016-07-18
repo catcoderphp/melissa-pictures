@@ -17,9 +17,14 @@
                             <div class="inner">
                                 <header>
                                     <h2><a href="{{route('albums.show',$album->id)}}">{{$album->name}}</a></h2>
-                                    <p>Fecha: {{$album->date}}</p>
                                 </header>
                                 <p>{{$album->description}}</p>
+                                {!! Form::open([
+                                        'method' => 'delete',
+                                        'route' => ['albums.destroy',$album->id]
+                                    ]) !!}
+                                {!! Form::submit('Borrar') !!}
+                                {!! Form::close() !!}
                             </div>
                         </section>
                     </div>

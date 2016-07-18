@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class PhotoController extends Controller
 {
@@ -137,8 +138,7 @@ class PhotoController extends Controller
     {
         $photo = Photo::find($id);
         if($photo->trashed()){
-            echo json_encode(['delete' => 1]);
-            $photo->restore();
+            return Redirect::to(route('albums.index'))->with('success','Foto eliminada correctamente');
         }
     }
 }

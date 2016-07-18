@@ -15,6 +15,7 @@ class Album extends Model
         return $this->hasMany('App\Photo');
     }
 
+    
     protected static function boot() {
         parent::boot();
         //SOFT DELETE ON CASCADE TO PHOTOS

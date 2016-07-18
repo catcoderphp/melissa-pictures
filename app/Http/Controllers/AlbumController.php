@@ -74,7 +74,7 @@ class AlbumController extends Controller
         $album = Album::with(['photos' => function($query){
             $query->orderBy('id','desc');
         }])
-            ->find($id);
+            ->findOrFail($id);
         return view('albums.show',compact('album'));
     }
 
@@ -86,7 +86,7 @@ class AlbumController extends Controller
      */
     public function edit($id)
     {
-        $album = Album::find($id);
+        $album = Album::findOrFail($id);
         return view('albums.edit',compact('album'));
     }
 
@@ -110,12 +110,10 @@ class AlbumController extends Controller
      */
     public function destroy($id)
     {
-        $album = Album::find($id);
+        $album = Album::findOrFail($id);
         $album->delete();
         if($album->trashed()){
-            echo json_encode([
-                'delete' => 1
-            ]);
+            return Redirect::to(route('albums.index'))->with('success','Eliminado correctamente');
         }
-        }
+    }
 }
