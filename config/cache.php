@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_DRIVER', 'database'),
+    'default' => env('CACHE_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------
@@ -59,8 +59,13 @@ return [
         ],
 
         'redis' => [
-            'driver' => 'redis',
-            'connection' => 'default',
+            'cluster' => false,
+
+            'default' => [
+                'host'     => '127.0.0.1',
+                'port'     => 6379,
+                'database' => 0,
+            ]
         ],
 
     ],

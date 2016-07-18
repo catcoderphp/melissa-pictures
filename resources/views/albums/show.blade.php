@@ -16,10 +16,11 @@
                 @foreach($album->photos as $photo)
                     <div class="4u 12u(medium)">
                         <section class="box feature">
-                            <a href="#" class="image featured"><img src="{{route('imagecache',[
+                            <a href="{{asset('uploads/'.$photo->photo)}}" class="albumPhoto cboxElement image featured"><img src="{{route('imagecache',[
                             'size' => '350x277',
-                            'name' => $photo->photo
-                        ])}}" alt="" /></a>
+                            'name' => $photo->photo,
+
+                        ])}}" alt="{{str_replace(" ","-",$album->name)}}-photo" class='' /></a>
                             <div class="inner">
                                 <header>
                                     <h2>{{$photo->name}}</h2>
@@ -36,4 +37,9 @@
         </div>
     </div>
 </div>
+        <link rel="stylesheet" href="http://www.jacklmoore.com/colorbox/example4/colorbox.css">
+        <script type="text/javascript" src="http://www.jacklmoore.com/colorbox/jquery.colorbox.js"></script>
+        <script type="text/javascript">
+            $(".albumPhoto").colorbox({rel:"albumPhoto"});
+        </script>
 @endsection
