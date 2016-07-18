@@ -11,21 +11,25 @@
 
                         <div class="col-md-3">
                             <h3>Mis fotos recientes</h3>
-                            <ul class="recent_images">
+                            @if(!empty($recent_images))
                                 @foreach($recent_images->photos as $photo)
-                                    <li>
-                                        <a class="albumPhoto cboxElement" href="{{asset('uploads/'.$photo->photo)}}">
-                                            <img src="{{route('imagecache',[
-                                                'size' => '120x90',
+                                    <div class="4u 12u(medium)">
+                                        <section class="box feature">
+
+                                            <a class="albumPhoto cboxElement" href="{{asset('uploads/'.$photo->photo)}}">
+                                                <img src="{{route('imagecache',[
+                                                'size' => '250x177',
                                                 'name' => $photo->photo,
                                             ])}}" alt="{{$photo->photo}}">
-                                        </a>
-                                    </li>
+                                            </a>
+
+                                        </section>
+                                    </div>
                                 @endforeach
-                            </ul>
+                            @endif
                         </div>
 
-                        <div class="col-md-9" style="margin-bottom: 40px">
+                        <div class="col-md-6" style="margin-bottom: 40px">
                             @include('albums.partials.form')
                         </div>
 

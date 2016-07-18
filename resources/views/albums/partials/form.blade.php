@@ -7,7 +7,7 @@
 
 <div class="form-group">
     {!! Form::label('name','Nombre del &aacute;lbum') !!}
-    {!! Form::text('name',isset($album) ? $album->name : null,['class' => 'form-control']) !!}
+    {!! Form::text('name',isset($album) ? $album->name : null,['class' => 'form-control','required']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('description','Descripci&oacute;n') !!}

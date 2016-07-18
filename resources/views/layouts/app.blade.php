@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="es">
 <head>
     <title>Melissa</title>
 
@@ -51,7 +51,7 @@
                     <div class="alert alert-success" role="alert">
                         <ul>
                             <strong>Success! Your action has been correct: </strong>
-                            <li>{{ Session::get('success') }}</li>
+                            <li>{{ Session::get('shttp://melissa.dev/uploads/250x277/7ee8dcd80c2ad40b94fe0ec7e8752932.jpguccess') }}</li>
                         </ul>
                     </div>
                 @endif

@@ -135,6 +135,10 @@ class PhotoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $photo = Photo::find($id);
+        if($photo->trashed()){
+            echo json_encode(['delete' => 1]);
+            $photo->restore();
+        }
     }
 }

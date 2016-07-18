@@ -37,8 +37,15 @@ class AlbumController extends Controller
     public function create()
     {
         $recent_images = Album::with(['photos' => function($query){
-            $query->limit(5);
-        }])->where('user_id','=',Auth::user()->id)->get()[0];
+            $query->limit(5)
+                ->orderBy('id','DESC');
+        }])->where('user_id','=',Auth::user()->id)
+            ->get();
+        if(!isset($recent_images[0])) {
+            $recent_images = [];
+        } else{
+            $recent_images = $recent_images[0];
+        }
         return view('albums.create',compact('recent_images'));
     }
 
@@ -48,7 +55,7 @@ class AlbumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\AlbumRequest $request)
     {
         $data = $request->all();
         $data["user_id"] = Auth::user()->id;
@@ -57,7 +64,7 @@ class AlbumController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the speci302 Foundfied resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -103,6 +110,12 @@ class AlbumController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        $album = Album::find($id);
+        $album->delete();
+        if($album->trashed()){
+            echo json_encode([
+                'delete' => 1
+            ]);
+        }
+        }
 }

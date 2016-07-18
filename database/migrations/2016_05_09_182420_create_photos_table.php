@@ -20,6 +20,7 @@ class CreatePhotosTable extends Migration
                 ->references('id')
                 ->on('albums')
                 ->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
