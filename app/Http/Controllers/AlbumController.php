@@ -36,7 +36,10 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view('albums.create');
+        $recent_images = Album::with(['photos' => function($query){
+            $query->limit(5);
+        }])->where('user_id','=',Auth::user()->id)->get()[0];
+        return view('albums.create',compact('recent_images'));
     }
 
     /**

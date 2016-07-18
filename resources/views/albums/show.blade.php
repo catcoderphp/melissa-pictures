@@ -40,6 +40,9 @@
         <link rel="stylesheet" href="http://www.jacklmoore.com/colorbox/example4/colorbox.css">
         <script type="text/javascript" src="http://www.jacklmoore.com/colorbox/jquery.colorbox.js"></script>
         <script type="text/javascript">
-            $(".albumPhoto").colorbox({rel:"albumPhoto"});
+            $(".albumPhoto").colorbox({
+                rel:"albumPhoto",
+                transition:"elastic"
+            });
         </script>
 @endsection
