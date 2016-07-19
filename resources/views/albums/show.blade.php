@@ -12,8 +12,8 @@
             </div>
             <!-- Box -->
 
-            @if(count($album->photos) > 0)
-                @foreach($album->photos as $photo)
+            @if(count($photos) > 0)
+                @foreach($photos as $photo)
                     <div class="4u 12u(medium)">
                         <section class="box feature">
                             <a href="{{asset('uploads/'.$photo->photo)}}" class="albumPhoto cboxElement image featured"><img src="{{route('imagecache',[
@@ -31,6 +31,7 @@
                         </section>
                     </div>
                 @endforeach
+                {{$photos->render()}}
             @else
                 <h1>No existen fotos :(</h1>
             @endif

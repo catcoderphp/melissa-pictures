@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Album;
+use App\Photo;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -71,10 +72,10 @@ class AlbumController extends Controller
      */
     public function show($id)
     {
-        $album = Album::with(['photos' => function($query){
-            $query->orderBy('id','desc')->paginate(21);
-        }])->findOrFail($id);
-        return view('albums.show',compact('album'));
+        $photos = Photo::where('album_id','=',$id)
+            ->paginate(21);
+        $album = Album::find($id);
+        return view('albums.show',compact('photos','album'));
     }
 
     /**
