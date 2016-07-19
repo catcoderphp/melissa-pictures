@@ -72,7 +72,7 @@ class AlbumController extends Controller
     public function show($id)
     {
         $album = Album::with(['photos' => function($query){
-            $query->orderBy('id','desc')->paginate(12);
+            $query->orderBy('id','desc')->paginate(21);
         }])->findOrFail($id);
         return view('albums.show',compact('album'));
     }
