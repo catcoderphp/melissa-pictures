@@ -14,10 +14,37 @@
     {!! Form::textarea('description',isset($album) ? $album->description : null,['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
+    {!! Form::label('cover','Portada de &Aacute;lbum') !!}
+    <img class='preview-image' src="" alt="preview image">
+    {!! Form::file('cover',null,[
+        'class' => 'form-control',
+    ]) !!}
+</div>
+<div class="form-group">
     {!! Form::submit(isset($album)? "Actualizar &aacute;lbum":'Crear &aacute;lbum',[
             'class' => 'btn btn-success',
             'id' => isset($album) ? "update_album" : 'new_album'
         ])
     !!}
 </div>
+@section('scripts')
+<script type="text/javascript">
+    function imageBase64(file){
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.addEventListener('load',function () {
+            $('.preview-image').hide('delay').show('delay').attr({
+                'width':200,
+                'height':200,
+                'src':reader.result
+            });
+        });
+    }
+    $(document).ready(function () {
+        $('#cover').change(function(){
+            imageBase64(this.files[0]);
+        });
+    });
+</script>
+@endsection
 {!! Form::close() !!}

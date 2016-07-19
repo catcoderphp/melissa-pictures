@@ -14,7 +14,7 @@ class FilesHandler
     public static function upload($path,$files)
     {
         $uploaded = [];
-        if(is_array($files) && !empty($files[0])){
+        if(is_array($files)){
             foreach ($files as $file){
                 if($file->isValid()) {
                     $name = md5(time() . $file->getClientOriginalName()) . '.jpg';

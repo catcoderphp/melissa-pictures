@@ -9,7 +9,7 @@ class Album extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-    protected $fillable = ['name','description','user_id'];
+    protected $fillable = ['name','description','user_id','cover'];
 
     public function photos() {
         return $this->hasMany('App\Photo');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use App\Photo;
+use Catcoder\Helpers\FilesHandler;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -25,8 +26,7 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $albums = Album::where('user_id','=',Auth::user()->id)
-            ->get();
+        $albums = Album::where('user_id','=',Auth::user()->id)->get();
         return view('albums.index',compact('albums'));
     }
 
@@ -59,6 +59,9 @@ class AlbumController extends Controller
     public function store(Requests\AlbumRequest $request)
     {
         $data = $request->all();
+        $file = $request->file();
+        $cover = FilesHandler::upload(base_path('public/uploads'),$file);
+        $data['cover'] = $cover[0];
         $data["user_id"] = Auth::user()->id;
         $album = Album::create($data);
         return Redirect::to(route('albums.show',$album->id))->with('success','Tu &aacute;lbum fue creado');

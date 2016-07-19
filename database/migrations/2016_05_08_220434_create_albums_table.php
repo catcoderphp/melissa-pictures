@@ -16,6 +16,7 @@ class CreateAlbumsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+            $table->string('cover')->nullable();
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
