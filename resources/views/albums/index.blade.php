@@ -10,7 +10,6 @@
                 <!-- Box -->
                 @if(count($albums) > 0)
                     @foreach($albums as $album)
-
                         <div class="4u 12u(medium)">
                             <section class="box feature">
                                 <a href="{{route('albums.show',$album->id)}}" class="image featured"><img src="{{route('imagecache',[

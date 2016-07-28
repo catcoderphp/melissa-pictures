@@ -16,11 +16,12 @@
                 @foreach($photos as $photo)
                     <div class="4u 12u(medium)">
                         <section class="box feature">
-                            <a href="{{asset('uploads/'.$photo->photo)}}" class="albumPhoto cboxElement image featured"><img src="{{route('imagecache',[
-                            'size' => '350x277',
-                            'name' => $photo->photo,
-
-                        ])}}" alt="{{str_replace(" ","-",$album->name)}}-photo" class='' /></a>
+                            <a href="{{asset('uploads/'.$photo->photo)}}" class="albumPhoto cboxElement image featured">
+                                <img src="{{route('imagecache',[
+                                    'size' => '350x277',
+                                    'name' => $photo->photo,
+                                ])}}" alt="{{str_replace(" ","-",$album->name)}}-photo" class='' />
+                            </a>
                             <div class="inner">
                                 <header>
                                     <h2>{{$photo->name}}</h2>

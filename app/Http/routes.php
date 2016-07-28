@@ -26,12 +26,13 @@ Route::resource('albums','AlbumController');
 /*
  * dynamic image cache
  */
-Route::get('/uploads/{size}/{name}',['as' => 'imagecache', function($size = NULL, $name = NULL){
-    //if(!Auth::guest()) {
+Route::get('/image/{size}/{name}',['as' => 'imagecache', function($size = NULL, $name = NULL){
+    if(!Auth::guest()) {
+        $image_pointer = file_get_contents(public_path('uploads/'.$name));
         if (!is_null($size) && !is_null($name)) {
             $size = explode('x', $size);
-            $cache_image = Image::cache(function ($image) use ($size, $name) {
-                return $image->make(url("/uploads/". $name))
+            $cache_image = Image::cache(function ($image) use ($size, $name, $image_pointer) {
+                return $image->make($image_pointer)
                     ->resize($size[0], $size[1])
                     ->encode('jpg',60);
             }, 500); // cache for 500 minutes
@@ -40,7 +41,7 @@ Route::get('/uploads/{size}/{name}',['as' => 'imagecache', function($size = NULL
         } else {
             abort(404);
         }
-    //} else {
-    //    abort(404);
-    //}
+    } else {
+        abort(404);
+    }
 }]);
