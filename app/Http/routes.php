@@ -23,6 +23,13 @@ Route::resource('photos','PhotoController');
 Route::post('photos/album','PhotoController@storageFromAlbum');
 Route::resource('albums','AlbumController');
 
+Route::get('/protected',['middleware' => 'oauth',function (){
+   return Response()->json(['auth' => 'success']);
+}]);
+
+Route::post('oauth/access_token', function() {
+    return Response::json(Authorizer::issueAccessToken());
+});
 /*
  * dynamic image cache
  */
@@ -34,7 +41,7 @@ Route::get('/image/{size}/{name}',['as' => 'imagecache', function($size = NULL, 
             $cache_image = Image::cache(function ($image) use ($size, $name, $image_pointer) {
                 return $image->make($image_pointer)
                     ->resize($size[0], $size[1])
-                    ->encode('jpg',60);
+                    ->encode('jpg',90);
             }, 500); // cache for 500 minutes
 
             return Response::make($cache_image, 200, ['Content-Type' => 'image']);

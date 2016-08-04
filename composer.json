@@ -11,7 +11,8 @@
     "artesaos/defender": "^0.5.0",
     "intervention/imagecache": "^2.3",
     "intervention/image": "dev-master",
-    "devfactory/minify": "1.0.*"
+    "devfactory/minify": "1.0.*",
+    "lucadegasperi/oauth2-server-laravel": "5.1.*"
 
 
   },

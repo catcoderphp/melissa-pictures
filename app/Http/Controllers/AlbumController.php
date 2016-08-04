@@ -24,7 +24,7 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $albums = Album::where('user_id','=',Auth::user()->id)->get();
         return view('albums.index',compact('albums'));

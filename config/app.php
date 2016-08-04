@@ -160,6 +160,8 @@ return [
         'Intervention\Image\ImageServiceProvider',
         'Catcoder\Providers\HelperServiceProvider',
         'Devfactory\Minify\MinifyServiceProvider',
+        LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
+        LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
 
     ],
 
@@ -211,7 +213,10 @@ return [
         'Defender' => Artesaos\Defender\Facades\Defender::class,
         'FilesHandler' => "Catcoder\Helpers\FilesHandler",
         'Image' => 'Intervention\Image\Facades\Image',
-        'Minify'        => 'Devfactory\Minify\Facades\MinifyFacade'
+        'Minify' => 'Devfactory\Minify\Facades\MinifyFacade',
+        'Authorizer' => LucaDegasperi\OAuth2Server\Facades\Authorizer::class,
+        
+
     ],
 
 ];
